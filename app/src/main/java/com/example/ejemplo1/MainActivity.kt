@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.ejemplo1.navigation.NavManager
 import com.example.ejemplo1.ui.theme.Ejemplo1Theme
 
 class MainActivity : ComponentActivity() {
@@ -20,33 +21,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Ejemplo1Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(modifier = Modifier.padding(innerPadding)) {
-                        Greeting(name = "Android")
-                    }
-                }
-            }
+            GreetingPreview()
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        //fontSize = 100.sp,
-        modifier = modifier
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Ejemplo1Theme {
-        Column {
-            Greeting(name = "Roberto Carlos R.")
-            Greeting(name = "Irvin")
-        }
-    }
+    NavManager()
 }
