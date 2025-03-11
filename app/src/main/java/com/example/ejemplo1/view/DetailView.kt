@@ -1,6 +1,8 @@
 package com.example.ejemplo1.view
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -23,7 +25,7 @@ import com.example.ejemplo1.components.TitleBar
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailView(navController: NavController) {
+fun DetailView(navController: NavController, id:Int) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -42,16 +44,17 @@ fun DetailView(navController: NavController) {
             ActionButton(Color.Blue)
         }
     ) {
-        ContentView(navController)
+        ContentView(navController, id)
     }
 }
 
 @Composable
-private fun ContentView(navController: NavController) {
+private fun ContentView(navController: NavController, id:Int) {
     LazyColumn {
         item {
+            Spacer(modifier = Modifier.height(60.dp))
             Text(
-                text = "Item 1",
+                text = id.toString(),
                 modifier = Modifier.padding(64.dp),
                 style = MaterialTheme.typography.bodyLarge
             )
